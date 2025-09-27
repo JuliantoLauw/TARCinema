@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Pemesanan Tiket Bioskop</title>
+    
+    <link rel="stylesheet" href="css/login.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            
+            <form id="login-form" class="auth-form">
+                <h2>Login ke Akun Anda</h2>
+                
+                <div class="error-message hidden" id="login-global-error">
+                    Kredensial tidak valid. Silakan coba lagi.
+                </div>
+
+                <div class="input-group">
+                    <label for="login-email">Email atau Username</label>
+                    <input type="text" id="login-email" placeholder="Alamat email atau username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="login-password">Kata Sandi</label>
+                    <input type="password" id="login-password" placeholder="Kata Sandi" required>
+                    <span class="password-toggle" title="Lihat Kata Sandi">👁️</span>
+                </div>
+
+                <button type="submit" class="btn-primary">Masuk</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
