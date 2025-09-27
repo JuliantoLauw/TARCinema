@@ -57,8 +57,8 @@ body {
 }
 
 .input-group input:focus {
-    border-color: #e50914; 
-    box-shadow: 0 0 8px rgba(229, 9, 20, 0.3);
+    border-color: #007bff; 
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
     outline: none;
 }
 
@@ -68,7 +68,7 @@ body {
     padding: 14px;
     border: none;
     border-radius: 8px;
-    background-color: #e50914;
+    background-color: #007bff;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -79,7 +79,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #b80711;
+    background-color: #007bff;
 }
 
 
@@ -89,7 +89,7 @@ body {
 
 .error-message {
     background-color: #fdeaea;
-    color: #a72332;
+    color: #ff0000;
     padding: 12px;
     border: 1px solid #f9c0c4;
     border-radius: 6px;
