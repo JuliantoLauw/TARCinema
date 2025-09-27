@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Service Chat-TARCinema</title>
+  <link rel="stylesheet" href="css/chatbox.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Chatbox</h2>
+
+    <div id="chatBox" class="chat-box"></div>
+
+    <form id="chatForm" class="chat-form">
+      <input type="text" id="username" placeholder="Nama Anda">
+      <input type="text" id="message" placeholder="Tulis pertanyaan...">
+      <button type="submit">Kirim</button>
+    </form>
+
+    <div id="errors" class="errors"></div>
+
+    <div class="controls">
+      <label for="fontSlider">Font size:</label>
+      <input type="range" id="fontSlider" min="12" max="24" value="16">
+      <button id="themeToggle" type="button">Toggle Theme</button>
+      <a href="index.html" class="home-btn"> Kembali ke Home</a>
+    </div>
+  </div>
+
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
