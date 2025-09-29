@@ -3,6 +3,18 @@ const chatBox = document.getElementById("chatBox");
 const errors = document.getElementById("errors");
 const usernameInput = document.getElementById("username");
 const messageInput = document.getElementById("message");
+const reportBtn = document.getElementById("reportIssueBtn");
+const feedbackBtn = document.getElementById("feedbackBtn");
+const popup = document.getElementById("popupForm");
+const popupTitle = document.getElementById("popupTitle");
+const popupInput = document.getElementById("popupInput");
+const submitPopup = document.getElementById("submitPopup");
+const cancelPopup = document.getElementById("cancelPopup");
+const thankYouPopup = document.getElementById("thankYouPopup");
+const thankYouMessage = document.getElementById("thankYouMessage");
+const closeThankYou = document.getElementById("closeThankYou");
+
+let popupType = "";
 
 const chatData = {
   "chats": [
@@ -154,6 +166,51 @@ chatBox.addEventListener("click", function (e) {
     addMessage("Anda", q, false);
     setTimeout(() => addMessage("Bot", a, true), 500);
   }
+});
+
+reportBtn.addEventListener("click", () => {
+  popupTitle.textContent = "Ajukan Kendala";
+  popupInput.placeholder = "Jelaskan kendala Anda...";
+  popup.classList.remove("hidden");
+  popupType = "report";
+});
+
+feedbackBtn.addEventListener("click", () => {
+  popupTitle.textContent = "Feedback";
+  popupInput.placeholder = "Tuliskan feedback Anda...";
+  popup.classList.remove("hidden");
+  popupType = "feedback";
+});
+
+cancelPopup.addEventListener("click", () => {
+  popup.classList.add("hidden");
+  popupInput.value = "";
+});
+
+submitPopup.addEventListener("click", () => {
+  if (popupInput.value.trim() === "") {
+    alert("Harap isi sebelum mengirim!");
+    return;
+  }
+
+  popup.classList.add("hidden");
+
+  thankYouPopup.classList.remove("hidden");
+
+  if (popupType === "report") {
+    thankYouMessage.textContent = "Terima kasih sudah mengajukan kendala.";
+  } else if (popupType === "feedback") {
+    thankYouMessage.textContent = "Terima kasih atas feedback Anda.";
+  }
+  popupInput.value = "";
+
+  setTimeout(() => {
+    thankYouPopup.classList.add("hidden");
+  }, 3000);
+});
+
+closeThankYou.addEventListener("click", () => {
+  thankYouPopup.classList.add("hidden");
 });
 
 showFAQOptions();

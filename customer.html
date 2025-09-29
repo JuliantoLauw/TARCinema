@@ -17,6 +17,33 @@
       <button type="submit">Kirim</button>
     </form>
 
+    <div class="extra-actions">
+      <button id="reportIssueBtn" type="button">Ajukan Kendala</button>
+      <button id="feedbackBtn" type="button">Berikan Feedback</button>
+    </div>
+
+    <div id="popupForm" class="popup hidden">
+      <div class="popup-content">
+        <h3 id="popupTitle"></h3>
+        <textarea id="popupInput" rows="4" placeholder=""></textarea>
+        <br>
+        <div class="popup-actions">
+          <button id="submitPopup">Kirim</button>
+          <button id="cancelPopup">Batal</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="thankYouPopup" class="popup hidden">
+      <div class="popup-content">
+        <h3>Terima Kasih</h3>
+        <p id="thankYouMessage">Pesan Anda sudah terkirim.</p>
+        <div class="popup-actions">
+          <button id="closeThankYou">Tutup</button>
+        </div>
+      </div>
+    </div>
+
     <div id="errors" class="errors"></div>
 
     <div class="controls">
