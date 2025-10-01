@@ -36,6 +36,30 @@
   </main>
 
   <footer class="container footer">© TARCinema </footer>
+  <script>
+  $(function () {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (!loggedInUser) {
+      alert('Silakan login dulu.');
+      window.location.href = 'login.html';
+      return;
+    }
+
+    // Tampilkan nama user di navbar (opsional)
+    $('.navbar .container').append(
+      `<span style="margin-left:20px;">Hai, ${loggedInUser.name} | <a href="#" id="logout-link">Logout</a></span>`
+    );
+
+    // Logout
+    $('#logout-link').on('click', function (e) {
+      e.preventDefault();
+      localStorage.removeItem('loggedInUser');
+      window.location.href = 'login.html';
+    });
+
+    renderHome();
+  });
+</script>
 
   <script src="js/app.js"></script>
   <script>

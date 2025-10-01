@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrasi - TARCinema</title>
+  <!-- PENTING: pastikan file css ada di folder css/auth.css -->
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-container">
+      <h2>Buat Akun Baru</h2>
+
+      <form id="register-form" novalidate>
+        <label for="fullname">Nama Lengkap</label>
+        <input type="text" id="fullname" placeholder="Nama Lengkap" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Alamat email" required>
+
+        <label for="password">Kata Sandi</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Minimal 8 karakter, kombinasi huruf & angka" required>
+          <button type="button" class="toggle-pass" data-target="password" aria-label="Tampilkan kata sandi">👁</button>
+        </div>
+
+        <label for="confirm-password">Konfirmasi Kata Sandi</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" placeholder="Ulangi kata sandi" required>
+          <button type="button" class="toggle-pass" data-target="confirm-password" aria-label="Tampilkan konfirmasi kata sandi">👁</button>
+        </div>
+
+        <div id="register-error" class="error-text" role="status" aria-live="polite"></div>
+
+        <button type="submit" class="btn-submit">Daftar</button>
+
+        <p class="small">Sudah punya akun? <a href="login.html">Login di sini</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/register.js"></script>
+</body>
+</html>

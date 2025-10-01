@@ -1,34 +1,37 @@
-$(document).ready(function() {
+$(document).ready(function () {
+  $('#login-form').on('submit', function (e) {
+    e.preventDefault();
+    $('#login-global-error').addClass('hidden');
 
-    $('#login-form').on('submit', function(e) {
-        e.preventDefault();
-        $('#login-global-error').addClass('hidden'); 
+    const email = $('#login-email').val().trim();
+    const password = $('#login-password').val().trim();
 
-        const email = $('#login-email').val();
-        const password = $('#login-password').val();
+    const users = JSON.parse(localStorage.getItem('users')) || [];
 
-        // SIMULASI: Kredensial yang valid
-        const validEmail = 'test@mail.com';
-        const validPassword = 'Untar123';
+    const foundUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
 
-        // Validasi kredensial
-        if (email === validEmail && password === validPassword) {
-            alert('Login Berhasil! Mengarahkan ke Homepage.');
-            // halaman homepage
-        } else {
-            $('#login-global-error').removeClass('hidden');
-        }
-    });
+    if (foundUser) {
+      alert('Login Berhasil! Mengarahkan ke Homepage.');
 
+      localStorage.setItem('loggedInUser', JSON.stringify(foundUser));
 
-    $('.password-toggle').on('click', function() {
-        
-        const $input = $(this).closest('.input-group').find('input[type="password"], input[type="text"]');
-        
-        const type = $input.attr('type') === 'password' ? 'text' : 'password';
-        $input.attr('type', type);
+      window.location.href = 'index.html';
+    } else {
+      $('#login-global-error').removeClass('hidden');
+    }
+  });
 
-        $(this).text(type === 'password' ? '👁️' : '🔒');
-    });
+  $('.toggle-pass').on('click', function () {
+    const target = $(this).data('target');
+    const $input = $('#' + target);
 
+    if ($input.length) {
+      const type = $input.attr('type') === 'password' ? 'text' : 'password';
+      $input.attr('type', type);
+
+      $(this).text(type === 'password' ? '👁' : '𓁹');
+    }
+  });
 });
