@@ -15,12 +15,22 @@ function renderHome(){
   nowPlaying.empty(); coming.empty();
   DEMO_MOVIES.forEach((m,i)=>{
     const html = `<div class="card">
+    <a href="detail.html?id=${m.id}">
       <img src="${m.poster}" alt="${m.title}">
-      <h3>${m.title}</h3>
-      <p class="muted">${m.genre} • ${m.rating}</p>
-      <p><a class="btn" href="?id=${m.id}">Detail</a></p>
+    </a>
+    <h3>${m.title}</h3>
+    <p class="muted">${m.genre} • ${m.rating}</p>
     </div>`;
-    (i<2 ? nowPlaying : coming).append(html);
+  (i<2 ? nowPlaying : coming).append(html);
+    // const html = `<div class="card">
+    //   <img src="${m.poster}" alt="${m.title}">
+    //   <h3>${m.title}</h3>
+    //   <p class="muted">${m.genre} • ${m.rating}</p>
+    //   <p>
+    //     <a class="btn" href="detail.html?id=${m.id}">Detail</a>
+    //   </p>
+    // </div>`;
+    // (i<2 ? nowPlaying : coming).append(html);
   });
 
   $('#searchInput').on('input', function(){

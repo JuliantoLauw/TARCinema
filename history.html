@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Transaksi - TARCinema</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/history.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="brand">TARCinema</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="history.html">Riwayat</a>
+                <a href="customer.html">Layanan</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Riwayat Transaksi</h2>
+        <div id="history-list-container">
+            </div>
+        <div id="empty-history-msg" class="empty-state hidden">
+            <p>Anda belum memiliki riwayat transaksi.</p>
+            <a href="index.html" class="btn-primary">Cari Film Sekarang</a>
+        </div>
+    </main>
+
+    <footer class="container footer">© TARCinema </footer>
+
+    <script src="js/history.js"></script>
+</body>
+</html>

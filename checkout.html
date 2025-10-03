@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TARCinema</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="brand">TARCinema</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#">Riwayat</a>
+                <a href="customer.html">Layanan</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Checkout Pesanan</h2>
+        <div class="checkout-layout">
+            <div class="order-details">
+                <h3>Ringkasan Pesanan</h3>
+                <div id="summary-card" class="card">
+                    </div>
+
+                <h3>Kode Voucher</h3>
+                <div class="voucher-section card">
+                    <input type="text" id="voucher-code" placeholder="Masukkan kode voucher">
+                    <button id="apply-voucher-btn">Gunakan</button>
+                    <p id="voucher-status" class="voucher-status"></p>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <h3>Metode Pembayaran</h3>
+                <div class="payment-options card">
+                    <div class="payment-option">
+                        <input type="radio" id="credit-card" name="payment" value="credit-card" checked>
+                        <label for="credit-card">Kartu Kredit / Debit</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="bank-transfer" name="payment" value="bank-transfer">
+                        <label for="bank-transfer">Transfer Bank</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="e-wallet" name="payment" value="e-wallet">
+                        <label for="e-wallet">E-Wallet (GoPay, OVO, DANA)</label>
+                    </div>
+                </div>
+                <button id="pay-btn" class="btn-pay">Bayar Sekarang</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="success-popup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="popup-icon">✅</span>
+            <h3>Pembayaran Berhasil!</h3>
+            <p>Tiket Anda telah dikonfirmasi dan tersimpan di menu Riwayat.</p>
+            <button id="close-popup-btn">Kembali ke Home</button>
+        </div>
+    </div>
+
+    <footer class="container footer">© TARCinema </footer>
+
+    <script src="js/checkout.js"></script>
+</body>
+</html>
