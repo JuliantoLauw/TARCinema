@@ -116,3 +116,55 @@ body {
   font-size: 0.9rem;
   border-top: 1px solid #eee;
 }
+
+.poster-large {
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.detail-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.poster-col {
+  flex: 0 0 250px;
+}
+
+.poster-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.detail-info {
+  flex: 1;
+}
+
+.detail-info h2 {
+  margin-top: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1555b8;
+  color: #fff;
+}
