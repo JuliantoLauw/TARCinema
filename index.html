@@ -3,9 +3,117 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Now Playing - </title>
+  <title>Now Playing - TARCinema</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* === NAVBAR STYLE === */
+    .navbar {
+      background: #111;
+      color: white;
+      padding: 9px;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .navbar .brand {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffb84c;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      transition: 0.2s;
+    }
+    nav a:hover {
+      color: #ffb84c;
+    }
+
+    /* === USER INFO (KANAN ATAS) === */
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ffb84c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .user-avatar:hover {
+      transform: scale(1.05);
+      background: #ffd073;
+    }
+
+    /* === DROPDOWN MENU === */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: #222;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      padding: 10px 0;
+      z-index: 100;
+      min-width: 160px;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      transition: 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+      background: #ffb84c;
+      color: #111;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-5px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* FOOTER */
+    .container.footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 10px;
+      border-top: 1px solid #333;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -13,9 +121,12 @@
       <h1 class="brand">TARCinema</h1>
       <nav>
         <a href="index.html">Home</a>
-        <a href="history.html">Riwayat</a>
         <a href="customer.html">Layanan</a>
+        <a href="history.html">Riwayat</a>
       </nav>
+
+      <!-- Kanan atas -->
+      <div class="user-info" id="user-info"></div>
     </div>
   </header>
 
@@ -35,7 +146,8 @@
     </section>
   </main>
 
-  <footer class="container footer">© TARCinema </footer>
+  <footer class="container footer">© TARCinema</footer>
+
   <script>
   $(function () {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -45,27 +157,97 @@
       return;
     }
 
-    // Tampilkan nama user di navbar (opsional)
-    $('.navbar .container').append(
-      `<span style="margin-left:20px;">Hai, ${loggedInUser.name} | <a href="#" id="logout-link">Logout</a></span>`
-    );
+    const initial = loggedInUser.name ? loggedInUser.name.charAt(0).toUpperCase() : 'U';
 
-    // Logout
-    $('#logout-link').on('click', function (e) {
+    $('#user-info').html(`
+      <div class="user-avatar" id="user-avatar">${initial}</div>
+      <span>Hai, <strong>${loggedInUser.name}</strong></span>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="Profile.html"><i class="fa fa-user"></i> Profil</a>
+        <a href="story.html"><i class="fa fa-book-open"></i> Story</a>
+        <a href="#" id="logout-link"><i class="fa fa-right-from-bracket"></i> Logout</a>
+      </div>
+    `);
+
+    // === LOGOUT ===
+    $(document).on('click', '#logout-link', function (e) {
       e.preventDefault();
       localStorage.removeItem('loggedInUser');
       window.location.href = 'login.html';
     });
 
+    // === DROPDOWN BEHAVIOR ===
+    const avatar = document.getElementById('user-avatar');
+    const dropdown = document.getElementById('dropdownMenu');
+
+    avatar.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('show');
+    });
+
+    // Klik di luar area dropdown → tutup menu
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && !avatar.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+
     renderHome();
   });
-</script>
+  
+  
+$(function () {
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+  if (!loggedInUser) {
+    alert('Silakan login dulu.');
+    window.location.href = 'login.html';
+    return;
+  }
+
+  let avatarHtml = '';
+  if (loggedInUser.photo) {
+    avatarHtml = `<img src="${loggedInUser.photo}" id="user-avatar" class="user-avatar" style="object-fit: cover;">`;
+  } else {
+    const initial = loggedInUser.name ? loggedInUser.name.charAt(0).toUpperCase() : 'U';
+    avatarHtml = `<div class="user-avatar" id="user-avatar">${initial}</div>`;
+  }
+
+  $('#user-info').html(`
+    ${avatarHtml}
+    <span>Hai, <strong>${loggedInUser.name}</strong></span>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="profile.html"><i class="fa fa-user"></i> Profil</a>
+      <a href="story.html"><i class="fa fa-book-open"></i> Story</a>
+      <a href="#" id="logout-link"><i class="fa fa-right-from-bracket"></i> Logout</a>
+    </div>
+  `);
+
+  $(document).on('click', '#logout-link', function (e) {
+    e.preventDefault();
+    localStorage.removeItem('loggedInUser');
+    window.location.href = 'login.html';
+  });
+
+  const avatar = document.getElementById('user-avatar');
+  const dropdown = document.getElementById('dropdownMenu');
+
+  avatar.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('show');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !avatar.contains(e.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
+
+  renderHome();
+});
+
+
+  </script>
 
   <script src="js/app.js"></script>
-  <script>
-    $(function(){
-      renderHome();
-    });
-  </script>
 </body>
 </html>

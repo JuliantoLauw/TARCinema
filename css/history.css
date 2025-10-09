@@ -1,132 +1,166 @@
-/* Styling untuk Halaman Daftar Riwayat (history.html) */
+
+:root {
+  --bg: #111;
+  --card: #1c1c1c;
+  --accent: #ffb84c;
+  --muted: #bbb;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* === Umum untuk halaman history === */
+body {
+  background: var(--bg);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* === Daftar Riwayat (history.html) === */
 .history-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--card);
-    padding: 16px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .history-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  background: #222;
 }
 
 .history-info h3 {
-    margin: 0 0 8px;
-    color: var(--accent);
+  margin: 0 0 8px;
+  color: var(--accent);
 }
 
 .history-info p {
-    margin: 4px 0;
-    color: var(--muted);
-    font-size: 0.9rem;
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .history-status span {
-    background-color: #28a745;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
+  background-color: var(--accent);
+  color: #111;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-/* State jika riwayat kosong */
+/* === State jika riwayat kosong === */
 .empty-state {
-    text-align: center;
-    padding: 40px;
-    background: var(--card);
-    border-radius: var(--radius);
+  text-align: center;
+  padding: 40px;
+  background: var(--card);
+  border-radius: var(--radius);
+  color: var(--muted);
 }
+
 .btn-primary {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
+  display: inline-block;
+  background: var(--accent);
+  color: #111;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-weight: 600;
+  transition: 0.2s;
 }
-.hidden { display: none; }
+.btn-primary:hover {
+  background: #ffd073;
+}
 
+.hidden {
+  display: none;
+}
 
-/* Styling untuk Halaman Detail Tiket (history-detail.html) */
+/* === Detail Tiket (history-detail.html) === */
 .ticket-wrapper {
-    max-width: 450px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-top: 8px solid var(--accent);
+  max-width: 450px;
+  margin: 30px auto;
+  background: var(--card);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border-top: 6px solid var(--accent);
+  color: white;
 }
 
 .ticket-header {
-    text-align: center;
-    padding: 20px;
-    border-bottom: 2px dashed #ddd;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px dashed #333;
 }
 .ticket-header h3 {
-    margin: 0;
-    font-size: 1.8rem;
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--accent);
 }
 
 .ticket-body {
-    padding: 24px;
+  padding: 24px;
 }
 
 .booking-code {
-    text-align: center;
-    margin-bottom: 24px;
+  text-align: center;
+  margin-bottom: 24px;
 }
 .booking-code .label {
-    font-size: 1rem;
-    color: var(--muted);
+  font-size: 1rem;
+  color: var(--muted);
 }
 .booking-code .code {
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
 }
+
 .qr-placeholder {
-    width: 150px;
-    height: 150px;
-    margin: 10px auto;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--muted);
-    font-size: 0.8rem;
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+  background-color: #222;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  border-radius: 8px;
 }
 
 .ticket-details .detail-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 .ticket-details .label {
-    color: var(--muted);
+  color: var(--muted);
 }
 .ticket-details .value {
-    font-weight: 600;
-    text-align: right;
+  font-weight: 600;
+  color: white;
+  text-align: right;
 }
 
 .ticket-footer {
-    text-align: center;
-    padding: 16px;
-    background-color: #f9f9f9;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    font-size: 0.9rem;
-    color: var(--muted);
+  text-align: center;
+  padding: 16px;
+  background-color: #1a1a1a;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-size: 0.9rem;
+  color: var(--muted);
 }

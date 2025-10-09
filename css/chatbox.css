@@ -1,37 +1,50 @@
+/* === THEME TARCinema === */
+:root {
+  --bg: #111;
+  --card: #1c1c1c;
+  --accent: #ffb84c;
+  --muted: #bbb;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fa;
-  color: #333;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: white;
   margin: 0;
   padding: 20px;
   transition: background 0.3s, color 0.3s;
 }
 
+/* === Container utama === */
 .container {
   max-width: 600px;
   margin: auto;
-  background: white;
+  background: var(--card);
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   transition: background 0.3s, color 0.3s;
 }
 
+/* === Judul === */
 h2 {
   text-align: center;
   margin-bottom: 15px;
   font-weight: 600;
-  color: #007bff;
+  color: var(--accent);
 }
 
+/* === Kotak chat === */
 .chat-box {
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   border-radius: 8px;
   padding: 15px;
   height: 320px;
   overflow-y: auto;
   margin-bottom: 15px;
-  background: #fafafa;
+  background: #1a1a1a;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -41,57 +54,56 @@ h2 {
   width: 8px;
 }
 .chat-box::-webkit-scrollbar-thumb {
-  background: #bbb;
+  background: #444;
   border-radius: 4px;
 }
 .chat-box::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: #666;
 }
 
+/* === Pesan chat === */
 .chat-msg {
   max-width: 75%;
   padding: 10px 14px;
   border-radius: 18px;
   line-height: 1.4;
-  font-size: inherit;
   word-wrap: break-word;
   animation: fadeIn 0.3s ease;
 }
 
 .chat-user {
   align-self: flex-end;
-  background: #007bff;
-  color: white;
+  background: var(--accent);
+  color: #111;
   border-bottom-right-radius: 4px;
 }
 
 .chat-bot {
   align-self: flex-start;
-  background: #e5e5ea;
-  color: #333;
+  background: #2a2a2a;
+  color: white;
   border-bottom-left-radius: 4px;
 }
 
+/* === Tombol FAQ === */
 .faq-btn {
   display: inline-block;
   margin: 4px 0;
   padding: 6px 12px;
   border: none;
   border-radius: 16px;
-  background: #007bff;
-  color: white;
+  background: var(--accent);
+  color: #111;
   cursor: pointer;
   font-size: inherit;
+  transition: background 0.3s, transform 0.2s;
 }
 .faq-btn:hover {
-  background: #0056b3;
+  background: #ffd073;
+  transform: scale(1.05);
 }
 
-a.faq-btn {
-  text-decoration: none;
-  text-align: center;
-}
-
+/* === Tombol Kembali ke Home === */
 .home-btn {
   display: inline-block;
   padding: 8px 14px;
@@ -101,109 +113,70 @@ a.faq-btn {
   text-decoration: none;
   transition: background 0.3s, transform 0.2s;
 }
-
 .home-btn:hover {
-  background: #218838;
+  background: #1f8f39;
   transform: scale(1.05);
 }
 
-
+/* === Form input chat === */
 .chat-form {
   display: flex;
   gap: 10px;
 }
-
 .chat-form input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   border-radius: 20px;
+  background: #222;
+  color: white;
   outline: none;
   transition: border 0.2s;
 }
 .chat-form input:focus {
-  border-color: #007bff;
+  border-color: var(--accent);
 }
-
 .chat-form button {
   padding: 10px 18px;
   border: none;
-  background: #007bff;
-  color: white;
+  background: var(--accent);
+  color: #111;
   border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 .chat-form button:hover {
-  background: #0056b3;
+  background: #ffd073;
+  transform: scale(1.05);
 }
 
-.chat-msg, .faq-btn {
-  font-size: inherit;
-  transition: font-size 0.2s;
-}
-
+/* === Tombol kontrol tambahan === */
 .controls {
   margin-top: 15px;
   display: flex;
   justify-content: center;
   gap: 10px;
 }
-
 button#themeToggle {
   padding: 8px 14px;
   border: none;
-  background: #444;
+  background: #333;
   color: white;
   border-radius: 20px;
   cursor: pointer;
   transition: background 0.3s;
 }
 button#themeToggle:hover {
-  background: #222;
+  background: #555;
 }
 
-.errors {
-  color: red;
-  margin-top: 8px;
-}
-
-body.dark {
-  background: #121212;
-  color: white;
-}
-
-body.dark .container {
-  background: #1e1e1e;
-  color: white;
-}
-
-body.dark .chat-box {
-  background: #2a2a2a;
-}
-
-body.dark .chat-bot {
-  background: #3a3a3a;
-  color: #ddd;
-}
-
-body.dark .chat-form input {
-  background: #333;
-  color: white;
-  border: 1px solid #555;
-}
-
-body.dark .chat-form button {
-  background: #0d6efd;
-}
-
+/* === Tombol aksi ekstra === */
 .extra-actions {
   display: flex;
   justify-content: center;
   gap: 12px;
   margin: 12px 0;
 }
-
 .extra-actions button {
   padding: 10px 18px;
   border: none;
@@ -212,7 +185,6 @@ body.dark .chat-form button {
   font-size: 0.95rem;
   transition: background 0.3s, transform 0.2s;
 }
-
 #reportIssueBtn {
   background: #dc3545;
   color: white;
@@ -221,61 +193,59 @@ body.dark .chat-form button {
   background: #b02a37;
   transform: scale(1.05);
 }
-
 #feedbackBtn {
-  background: #007bff;
-  color: white;
+  background: var(--accent);
+  color: #111;
 }
 #feedbackBtn:hover {
-  background: #007bff;
+  background: #ffd073;
   transform: scale(1.05);
 }
 
+/* === Popup === */
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
 }
-
 .popup.hidden {
   display: none;
 }
-
 .popup-content {
-  background: #fff;
+  background: var(--card);
   padding: 24px 28px;
   width: 380px;
   max-width: 90%;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow);
   animation: fadeIn 0.3s ease;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-
 .popup-content h3 {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #007bff;
+  color: var(--accent);
   text-align: center;
 }
-
 .popup-content textarea {
   width: 100%;
   min-height: 100px;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   resize: vertical;
+  background: #222;
+  color: white;
   font-family: inherit;
   font-size: 0.95rem;
   outline: none;
@@ -283,16 +253,16 @@ body.dark .chat-form button {
   box-sizing: border-box;
 }
 .popup-content textarea:focus {
-  border-color: #007bff;
+  border-color: var(--accent);
 }
 
+/* Tombol popup */
 .popup-actions {
   display: flex;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
 }
-
 .popup-actions button {
   flex: 1;
   min-width: 120px;
@@ -304,44 +274,45 @@ body.dark .chat-form button {
   font-weight: 600;
   transition: background 0.3s, transform 0.2s;
 }
-
 #submitPopup {
-  background: #007bff;
-  color: white;
+  background: var(--accent);
+  color: #111;
 }
 #submitPopup:hover {
-  background: #0056b3;
+  background: #ffd073;
   transform: scale(1.05);
 }
-
 #cancelPopup {
-  background: #e0e0e0;
-  color: #333;
+  background: #444;
+  color: white;
 }
 #cancelPopup:hover {
-  background: #aaa;
+  background: #666;
   transform: scale(1.05);
 }
 
+/* Popup ucapan terima kasih */
 #thankYouPopup .popup-content {
   text-align: center;
   gap: 8px;
 }
-
 #thankYouPopup p {
   font-size: 1rem;
-  color: #333;
+  color: var(--muted);
 }
 
+/* Utility */
 .hidden {
   display: none !important;
 }
 
+/* Animasi */
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(5px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
+/* Responsif */
 @media (max-width: 500px) {
   .container {
     padding: 15px;

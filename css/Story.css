@@ -1,0 +1,163 @@
+:root {
+  --accent: #ffb84c;
+  --accent-hover: #e69e34;
+  --bg-dark: #121212;
+  --card-dark: #1c1c1c;
+  --muted: #a0a0a0;
+  --text-light: #f5f5f5;
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+header {
+  background: #0d0d0d;
+  color: var(--text-light);
+  padding: 25px 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #222;
+}
+
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.navbar .brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.navbar nav a {
+  color: var(--text-light);
+  margin-right: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  color: var(--accent);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  background: var(--card-dark);
+  padding: 40px 45px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid #222;
+}
+
+h1 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+h2 {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 6px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+p {
+  color: var(--muted);
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+ul {
+  margin-left: 20px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.card {
+  background: #222;
+  border: 1px solid #333;
+  border-radius: var(--radius);
+  text-align: center;
+  padding: 25px 15px;
+  transition: 0.3s;
+  color: var(--text-light);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.card i {
+  font-size: 42px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-top: 30px;
+  border: 1px solid #2c2c2c;
+}
+
+.contact-info p {
+  margin: 6px 0;
+  color: var(--muted);
+}
+
+.contact-info a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.contact-info a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+
+footer {
+  text-align: center;
+  background: #0d0d0d;
+  color: var(--muted);
+  padding: 18px;
+  margin-top: 40px;
+  font-size: 14px;
+  border-top: 1px solid #222;
+}

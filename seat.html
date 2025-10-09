@@ -9,64 +9,68 @@
 </head>
 <body>
 
-    <div class="seat-selection-container">
-        
-        <header class="showtime-header">
-            <h1>Film Pilihan Anda: [Nama Film]</h1>
-            <p>Pilih Bioskop, Tanggal, dan Jam Tayang.</p>
-            <div class="options-group">
-                <select id="select-cinema">
-                    <option value="">Pilih Bioskop</option>
-                    <option value="C1">Bioskop A</option>
-                    <option value="C2">Bioskop B</option>
-                </select>
-                <input type="date" id="select-date">
-                <select id="select-time">
-                    <option value="">Pilih Jam Tayang</option>
-                    <option value="13:00">13:00</option>
-                    <option value="17:00">17:00</option>
-                    <option value="20:30">20:30</option>
-                </select>
-            </div>
-        </header>
-        
-        <div class="main-content">
-            
-            <div class="seat-map-area">
-                <div class="screen-indicator">LAYAR BIOSKOP</div>
-                <div class="seat-map" id="seat-map">
-                    <p class="initial-prompt">Pilih waktu tayang di atas untuk menampilkan denah kursi.</p>
-                </div>
-                
-                <div class="legend">
-                    <div class="legend-item"><span class="seat available"></span> Tersedia</div>
-                    <div class="legend-item"><span class="seat selected"></span> Terpilih</div>
-                    <div class="legend-item"><span class="seat occupied"></span> Terisi</div>
-                </div>
+<div class="seat-selection-container">
+    <header class="showtime-header">
+        <h1>Film Pilihan Anda: [Nama Film]</h1>
+        <p>Pilih Bioskop, Tanggal, dan Jam Tayang.</p>
+        <div class="options-group">
+            <select id="select-cinema">
+                <option value="">Pilih Bioskop</option>
+                <option value="C1">Bioskop A</option>
+                <option value="C2">Bioskop B</option>
+            </select>
+            <input type="date" id="select-date">
+            <select id="select-time">
+                <option value="">Pilih Jam Tayang</option>
+                <option value="13:00">13:00</option>
+                <option value="17:00">17:00</option>
+                <option value="20:30">20:30</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="seat-map-area">
+            <div class="screen-indicator">LAYAR BIOSKOP</div>
+            <div class="seat-map" id="seat-map">
+                <p class="initial-prompt">Pilih waktu tayang di atas untuk menampilkan denah kursi.</p>
             </div>
 
-            <div class="checkout-summary">
-                <h3>Ringkasan Pesanan</h3>
-                <div class="summary-details">
-                    <p>Lokasi: <span id="summary-cinema">-</span></p>
-                    <p>Waktu: <span id="summary-time">-</span></p>
-                    <hr>
-                    <h4>Kursi (<span id="seat-count">0</span>)</h4>
-                    <ul id="selected-seats-list">
-                        <li class="placeholder">Pilih kursi yang tersedia.</li>
-                    </ul>
-                </div>
-                
-                <div class="price-box">
-                    <span>Total Harga</span>
-                    <span id="total-price">Rp 0</span>
-                </div>
-
-                <button id="checkout-btn" class="btn-primary" disabled>Lanjutkan ke Checkout</button>
+            <div class="legend">
+                <div class="legend-item"><span class="seat available"></span> Tersedia</div>
+                <div class="legend-item"><span class="seat selected"></span> Terpilih</div>
+                <div class="legend-item"><span class="seat occupied"></span> Terisi</div>
             </div>
         </div>
-    </div>
 
-    <script src="js/seat.js"></script>
+        <div class="checkout-summary">
+            <h3>Ringkasan Pesanan</h3>
+            <div class="summary-details">
+                <p>Lokasi: <span id="summary-cinema">-</span></p>
+                <p>Waktu: <span id="summary-time">-</span></p>
+                <hr>
+                <h4>Kursi (<span id="seat-count">0</span>)</h4>
+                <ul id="selected-seats-list">
+                    <li class="placeholder">Pilih kursi yang tersedia.</li>
+                </ul>
+            </div>
+
+            <div class="voucher-box">
+                <input type="text" id="voucher-code" placeholder="Masukkan kode voucher">
+                <button id="apply-voucher" class="btn-secondary">Gunakan</button>
+                <p id="voucher-message"></p>
+            </div>
+
+            <div class="price-box">
+                <span>Total Harga</span>
+                <span id="total-price">Rp 0</span>
+            </div>
+
+            <button id="checkout-btn" class="btn-primary" disabled>Lanjutkan ke Checkout</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/seat.js"></script>
 </body>
 </html>

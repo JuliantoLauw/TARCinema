@@ -35,3 +35,25 @@ $(document).ready(function () {
     }
   });
 });
+
+document.getElementById('login-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value.trim();
+
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+
+  const user = users.find(
+    u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+  );
+
+  if (user) {
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
+    alert("Login berhasil!");
+    window.location.href = "index.html";
+  } else {
+    document.getElementById('login-global-error').classList.remove('hidden');
+  }
+});
+

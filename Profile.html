@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil - TARCinema</title>
+  <link rel="stylesheet" href="css/profile.css">
+  <script src="https://kit.fontawesome.com/a2e0e6ad51.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="logo" onclick="window.location.href='index.html'">
+      <i class="fa-solid fa-film"></i> TARCinema
+    </div>
+    <div class="character" id="character">
+      <div class="face">
+        <div class="eye left"><div class="pupil"></div></div>
+        <div class="eye right"><div class="pupil"></div></div>
+        <div class="mouth"></div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" id="homeBtn">Beranda</button>
+      <button class="nav-btn" id="logoutBtn">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Profil Pengguna</h2>
+
+    <img id="profilePic" src="" alt="Foto Profil" class="profile-pic">
+    <br>
+    <input type="file" id="uploadPic" accept="image/*" style="display: none;">
+    <button class="upload-btn" onclick="document.getElementById('uploadPic').click()">
+      <i class="fa-solid fa-camera"></i> Ganti Foto
+    </button>
+
+    <div class="info">
+      <p><strong>Nama:</strong> <span id="name">User</span></p>
+      <p><strong>Email:</strong> <span id="email">-</span></p>
+    </div>
+
+    <form id="updateForm">
+      <label>Username Baru</label>
+      <input type="text" id="newName" placeholder="Masukkan username baru">
+      <label>Email Baru</label>
+      <input type="email" id="newEmail" placeholder="Masukkan email baru">
+      <label>Password Baru</label>
+      <input type="password" id="newPassword" placeholder="Masukkan password baru">
+      <button type="submit"><i class="fa-solid fa-rotate"></i> Simpan Perubahan</button>
+    </form>
+  </div>
+
+  <footer>© 2025 <span style="color:var(--accent);">TARCinema</span>. All Rights Reserved.</footer>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>
