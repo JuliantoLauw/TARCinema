@@ -1,4 +1,4 @@
-/* === THEME TARCinema === */
+
 :root {
   --bg: #111;
   --card: #1c1c1c;
@@ -7,6 +7,39 @@
   --radius: 12px;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
+
+body.light-mode {
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --accent: #007bff;
+  --muted: #333;
+  color: #111;
+}
+
+body.light-mode .chat-box {
+  background: #f0f0f0;
+  color: #111;
+}
+
+body.light-mode .chat-msg.chat-user {
+  background: #007bff;
+  color: white;
+}
+
+body.light-mode .chat-msg.chat-bot {
+  background: #e0e0e0;
+  color: #111;
+}
+
+body.light-mode #themeToggle {
+  background: #007bff;
+  color: white;
+}
+
+body.light-mode h2 {
+  color: #007bff;
+}
+
 
 body {
   font-family: "Poppins", sans-serif;
@@ -17,7 +50,7 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* === Container utama === */
+
 .container {
   max-width: 600px;
   margin: auto;
@@ -28,7 +61,7 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* === Judul === */
+
 h2 {
   text-align: center;
   margin-bottom: 15px;
@@ -36,7 +69,7 @@ h2 {
   color: var(--accent);
 }
 
-/* === Kotak chat === */
+
 .chat-box {
   border: 1px solid #333;
   border-radius: 8px;
@@ -61,7 +94,7 @@ h2 {
   background: #666;
 }
 
-/* === Pesan chat === */
+
 .chat-msg {
   max-width: 75%;
   padding: 10px 14px;
@@ -85,7 +118,7 @@ h2 {
   border-bottom-left-radius: 4px;
 }
 
-/* === Tombol FAQ === */
+
 .faq-btn {
   display: inline-block;
   margin: 4px 0;
@@ -161,7 +194,7 @@ button#themeToggle {
   padding: 8px 14px;
   border: none;
   background: #333;
-  color: white;
+  color: bisque;
   border-radius: 20px;
   cursor: pointer;
   transition: background 0.3s;

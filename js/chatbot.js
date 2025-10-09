@@ -137,9 +137,19 @@ document.getElementById("fontSlider").addEventListener("input", function (e) {
   chatBox.style.fontSize = e.target.value + "px";
 });
 
+// === Toggle Tema Dark/Light ===
 document.getElementById("themeToggle").addEventListener("click", function () {
-  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light-mode");
+
+  // ubah teks tombol juga biar interaktif
+  const btn = document.getElementById("themeToggle");
+  if (document.body.classList.contains("light-mode")) {
+    btn.textContent = "Dark Theme";
+  } else {
+    btn.textContent = "Light Theme";
+  }
 });
+
 
 function showFAQOptions() {
   addMessage("Bot", "Halo! Pilih pertanyaan umum berikut atau ketik pertanyaan Anda:", true);
